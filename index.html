@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Zhonghua Secondary School Unofficial Page">
+    <title>Zhonghua Secondary | Home</title>
+    <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        /* Page Load Animation */
+        .page-enter { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Nav Link Animation */
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: #047857; transition: all 0.3s ease-in-out; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; left: 0; }
+        .nav-link.active { color: #047857; font-weight: 700; }
+        
+        /* Mobile Menu Animation */
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                    <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl text-slate-900 leading-none">ZHONGHUA</span>
+                        <span class="text-[10px] md:text-xs text-slate-500 font-bold tracking-widest mt-0.5">SECONDARY SCHOOL</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex space-x-6 lg:space-x-8 h-full items-center">
+                    <a href="index.html" class="nav-link active h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">About Us</a>
+                    <a href="timetable.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Timetables</a>
+                    <a href="cca.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">CCA</a>
+                    <a href="achievements.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Achievements</a>
+                    <a href="znotes.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
+                    <a href="zportal.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZPortal</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg left-0 z-40">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block py-3 text-base font-bold text-emerald-700 bg-emerald-50 rounded-lg px-3 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">About Us</a>
+                <a href="timetable.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Timetables</a>
+                <a href="cca.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">CCA</a>
+                <a href="achievements.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Achievements</a>
+                <a href="znotes.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZNotes</a>
+                <a href="zportal.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZPortal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section class="relative bg-slate-900 overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://www.zhonghuasec.moe.edu.sg/images/openhouse__1__v2_0.jpg" alt="Zhonghua Secondary School Open House" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-emerald-900/80 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-emerald-900/60 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-20 md:py-32 z-10 page-enter">
+                <div class="md:w-3/4 lg:w-2/3">
+                    <span class="inline-block py-1 px-3 rounded-full bg-emerald-700/80 border border-emerald-400 text-emerald-50 text-xs md:text-sm font-semibold mb-4 md:mb-6 backdrop-blur-sm">Est. 1911</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg leading-tight">
+                        Scholars & Leaders <br/>
+                        <span class="text-emerald-300">Of The Future</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-emerald-50 mb-8 md:mb-10 leading-relaxed max-w-2xl drop-shadow-md">
+                        Nurturing Passionate Learners, Dynamic Leaders, and Connected Citizens in a century-old tradition of excellence.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="timetable.html" class="px-8 py-3.5 bg-white text-emerald-900 font-bold rounded-lg shadow-lg hover:bg-emerald-50 transition transform hover:-translate-y-1 text-center">Check Class Schedule</a>
+                        <a href="achievements.html" class="px-8 py-3.5 bg-transparent border-2 border-emerald-400 text-white font-bold rounded-lg hover:bg-emerald-800/50 transition backdrop-blur-sm text-center">Our Achievements</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcements -->
+        <section class="py-16 bg-white page-enter" style="animation-delay: 0.1s;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Latest Announcements</h2>
+                    <p class="text-slate-600">Keep up to date with the latest happenings at Zhonghua Secondary.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Modified Card 1 -->
+                    <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
+                        <div class="bg-emerald-700 h-2 w-full"></div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide">05 Feb 2026</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 group-hover:text-emerald-700 transition">2026 Teaching Awards</h3>
+                            <p class="text-slate-600 text-sm mb-4">Nominations are now open for the Caring Teacher Awards and Outstanding Youth in Education Award.</p>
+                            <span class="text-sm font-semibold text-emerald-700 flex items-center gap-1 group-hover:gap-2 transition-all">Read More <span>→</span></span>
+                        </div>
+                    </a>
+                    
+                    <!-- Modified Card 2 -->
+                    <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
+                        <div class="bg-emerald-700 h-2 w-full"></div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide">Sec 1 Info</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 group-hover:text-emerald-700 transition">Sec 1 2026 Information</h3>
+                            <p class="text-slate-600 text-sm mb-4">Access the briefing slides, booklists, and orientation programme details here.</p>
+                            <span class="text-sm font-semibold text-emerald-700 flex items-center gap-1 group-hover:gap-2 transition-all">Access Portal <span>→</span></span>
+                        </div>
+                    </a>
+                    
+                    <!-- Modified Card 3 -->
+                    <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
+                        <div class="bg-emerald-700 h-2 w-full"></div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide">Academic</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 group-hover:text-emerald-700 transition">Bridging Timetables</h3>
+                            <p class="text-slate-600 text-sm mb-4">The updated schedules for the Sec 1 and 2 Bridging & Academic Support Programmes.</p>
+                            <span class="text-sm font-semibold text-emerald-700 flex items-center gap-1 group-hover:gap-2 transition-all">Download PDF <span>→</span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-8 w-8 bg-white rounded-full p-0.5 object-contain">
+                        Zhonghua Secondary
+                    </h3>
+                    <p class="mb-2 text-slate-400">13 Serangoon Avenue 3, Singapore 556123</p>
+                    <p class="text-xs md:text-sm text-slate-500 max-w-xs mt-4 leading-relaxed">Nurturing students of character and relevance since 1911. Empowering Scholars and Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://pg.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Parents Gateway</a></li>
+                        <li><a href="https://www.learning.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Student Learning Space</a></li>
+                        <li><a href="https://schoolibrary.moe.edu.sg/zhonghuasec/" target="_blank" class="hover:text-emerald-400 transition">School Library</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>Phone: +65 6282 4339</li>
+                        <li>Email: zhonghua_ss@moe.edu.sg</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs md:text-sm text-slate-600">
+                &copy; 2026 Zhonghua Secondary School. Unofficial Student Portal Concept.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

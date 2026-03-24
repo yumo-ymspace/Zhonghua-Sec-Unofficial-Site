@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zhonghua Secondary | About Us</title>
+    <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+        
+        .page-enter { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: #047857; transition: all 0.3s ease-in-out; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; left: 0; }
+        .nav-link.active { color: #047857; font-weight: 700; }
+
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                    <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl text-slate-900 leading-none">ZHONGHUA</span>
+                        <span class="text-[10px] md:text-xs text-slate-500 font-bold tracking-widest mt-0.5">SECONDARY SCHOOL</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex space-x-6 lg:space-x-8 h-full items-center">
+                    <a href="index.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link active h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">About Us</a>
+                    <a href="timetable.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Timetables</a>
+                    <a href="cca.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">CCA</a>
+                    <a href="achievements.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Achievements</a>
+                    <a href="znotes.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
+                    <a href="zportal.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZPortal</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg left-0 z-40">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-base font-bold text-emerald-700 bg-emerald-50 rounded-lg px-3 transition-colors">About Us</a>
+                <a href="timetable.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Timetables</a>
+                <a href="cca.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">CCA</a>
+                <a href="achievements.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Achievements</a>
+                <a href="znotes.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZNotes</a>
+                <a href="zportal.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZPortal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 md:py-16 page-enter">
+        <!-- Content same as before -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 md:mb-16">
+                <span class="text-emerald-600 font-bold uppercase tracking-wide text-xs md:text-sm">About Us</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Our Story & Purpose</h2>
+                <p class="mt-4 text-sm md:text-base text-slate-600 max-w-3xl mx-auto">Founded in 1911 as Chung Hwa Girls' School, Zhonghua has evolved into a co-educational autonomous Special Assistance Plan (SAP) school.</p>
+            </div>
+
+            <!-- Principal's Message -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-16 border border-slate-100">
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="bg-emerald-800 p-8 text-white flex flex-col justify-center text-center">
+                        <div class="w-24 h-24 md:w-32 md:h-32 bg-emerald-700 rounded-full mx-auto mb-4 overflow-hidden border-4 border-emerald-500 shadow-inner flex items-center justify-center text-4xl">👨‍🏫</div>
+                        <h3 class="text-lg md:text-xl font-bold">Mr Tan Kim Koon</h3>
+                        <p class="text-emerald-200 text-xs md:text-sm">Principal</p>
+                    </div>
+                    <div class="p-6 md:col-span-2 md:p-12">
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-4">Message for 2026: Remember, Return, Reignite</h3>
+                        <div class="prose text-sm md:text-base text-slate-600 space-y-4">
+                            <p>"For more than a century, generations of Zhonghuarians have walked through our gates, carrying with them hopes and aspirations. 2026 marks a significant milestone as we commemorate our 115th anniversary."</p>
+                            <p>"We remain committed to strengthening what matters most: teaching and learning, student well-being, and a caring school environment. We will sharpen our strategic approach through the <strong>4L framework</strong>: Life-long Learning, Life-wide Learning, Life-wise Learning, and Life-strong Learning."</p>
+                            <blockquote class="italic border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-2 pr-2 rounded-r text-sm">"Together, let us remember our past, return to our roots, and reignite the spirit that defines us."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Identity -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900">Our Core Identity</h2>
+                    <div class="w-24 h-1 bg-emerald-500 mx-auto rounded-full mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl">🔭</div>
+                            <h3 class="text-2xl font-bold text-slate-900">Our Vision</h3>
+                        </div>
+                        <h4 class="text-xl font-bold text-emerald-700 mb-4 font-serif italic">"Scholars & Leaders"</h4>
+                        <div class="space-y-4 text-slate-600 text-sm md:text-base">
+                            <div><strong class="text-slate-900 block mb-1">As Scholars</strong><p>Well-rounded, discerning individuals who navigate complexities with wisdom and humility. Agile, adaptable, and passionate lifelong learners.</p></div>
+                            <div><strong class="text-slate-900 block mb-1">As Leaders</strong><p>Future-ready, value-anchored, and purpose-driven. Valuing diversity, collaborating effectively, and aspiring to make a difference.</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl">🚀</div>
+                            <h3 class="text-2xl font-bold text-slate-900">Our Mission</h3>
+                        </div>
+                        <div class="text-lg md:text-xl font-medium text-slate-800 leading-relaxed space-y-3">
+                            <p>Nurturing</p>
+                            <p class="text-emerald-600 font-bold pl-4 border-l-4 border-emerald-500 bg-emerald-50 py-2 rounded-r">Passionate Learners</p>
+                            <p class="text-emerald-600 font-bold pl-4 border-l-4 border-emerald-500 bg-emerald-50 py-2 rounded-r">Dynamic Leaders</p>
+                            <p class="text-emerald-600 font-bold pl-4 border-l-4 border-emerald-500 bg-emerald-50 py-2 rounded-r">Connected Citizens</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- RICE Values -->
+                <div class="bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-3xl p-8 text-white shadow-lg relative overflow-hidden mb-12">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 relative z-10"><span class="bg-white/20 p-2 rounded-lg text-xl">💎</span> Our Values (R.I.C.E)</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+                        <div class="flex items-start gap-4"><div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-emerald-100 shrink-0">R</div><div><h4 class="font-bold">Resilience</h4><p class="text-emerald-200 text-xs">Persevering through challenges.</p></div></div>
+                        <div class="flex items-start gap-4"><div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-emerald-100 shrink-0">I</div><div><h4 class="font-bold">Integrity</h4><p class="text-emerald-200 text-xs">Upholding moral principles.</p></div></div>
+                        <div class="flex items-start gap-4"><div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-emerald-100 shrink-0">C</div><div><h4 class="font-bold">Care</h4><p class="text-emerald-200 text-xs">Showing concern for others.</p></div></div>
+                        <div class="flex items-start gap-4"><div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-emerald-100 shrink-0">E</div><div><h4 class="font-bold">Excellence</h4><p class="text-emerald-200 text-xs">Striving for the best.</p></div></div>
+                    </div>
+                </div>
+                <!-- Motto -->
+                <div class="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col justify-center text-center shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">School Motto</h3>
+                    <h4 class="text-3xl font-extrabold text-amber-700 mb-1">礼 义 廉 耻</h4>
+                    <p class="text-amber-900/70 font-medium italic text-sm mb-4">(Li Yi Lian Chi)</p>
+                    <div class="text-sm text-slate-600 space-y-1"><p>Courtesy • Righteousness</p><p>Integrity • Dignity</p></div>
+                </div>
+            </div>
+
+            <!-- Crest & Song -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">Our Crest</h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col sm:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-emerald-100 rounded-full flex items-center justify-center text-4xl shrink-0">🍀</div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">The Begonia Leaf</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-3">The begonia is a hardy plant that survives in almost any condition. Students are encouraged to emulate its enduring qualities.</p>
+                            <div class="flex gap-2 text-xs font-bold uppercase">
+                                <span class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded">Green: Vitality</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-800 rounded">White: Purity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">School Song</h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 h-64 overflow-y-auto custom-scrollbar">
+                        <p class="text-slate-600 text-sm md:text-base italic whitespace-pre-line leading-7 text-center">
+                            We, sons and daughters of Zhonghua
+                            Are to be courteous and righteous
+                            And edified and dignified
+                            Zhonghua our centre of knowledge
+                            
+                            Onward together strive with fervour
+                            To fulfill our aspirations
+                            Stand up for Zhonghua! Stand up for Zhonghua!
+                            Pledge to Zhonghua, we'll do our best
+                            In whatever we pursue
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Matters -->
+            <div class="bg-slate-200 rounded-2xl p-6 md:p-12 text-center">
+                <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-4">Administrative Matters</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+                    <div class="bg-white p-5 rounded-xl shadow-sm"><div class="text-2xl md:text-3xl mb-2 md:mb-3">🕒</div><h4 class="font-bold text-slate-900 text-sm md:text-base">General Office Hours</h4><p class="text-xs md:text-sm text-slate-500 mt-2">Mon - Fri: 7.00am - 5.30pm<br>Closed on Weekends</p></div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm"><div class="text-2xl md:text-3xl mb-2 md:mb-3">📞</div><h4 class="font-bold text-slate-900 text-sm md:text-base">Contact Us</h4><p class="text-xs md:text-sm text-slate-500 mt-2">Tel: +65 6282 4339<br>Fax: +65 6282 3470</p></div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm"><div class="text-2xl md:text-3xl mb-2 md:mb-3">📍</div><h4 class="font-bold text-slate-900 text-sm md:text-base">Location</h4><p class="text-xs md:text-sm text-slate-500 mt-2">13 Serangoon Avenue 3<br>Singapore 556123</p></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-8 w-8 bg-white rounded-full p-0.5 object-contain">
+                        Zhonghua Secondary
+                    </h3>
+                    <p class="mb-2 text-slate-400">13 Serangoon Avenue 3, Singapore 556123</p>
+                    <p class="text-xs md:text-sm text-slate-500 max-w-xs mt-4 leading-relaxed">Nurturing students of character and relevance since 1911. Empowering Scholars and Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://pg.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Parents Gateway</a></li>
+                        <li><a href="https://www.learning.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Student Learning Space</a></li>
+                        <li><a href="https://schoolibrary.moe.edu.sg/zhonghuasec/" target="_blank" class="hover:text-emerald-400 transition">School Library</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>Phone: +65 6282 4339</li>
+                        <li>Email: zhonghua_ss@moe.edu.sg</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs md:text-sm text-slate-600">
+                &copy; 2026 Zhonghua Secondary School. Unofficial Student Portal Concept.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

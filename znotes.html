@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zhonghua Secondary | ZNotes</title>
+    <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .gradient-text { background: linear-gradient(to right, #059669, #047857); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Page Load Animation */
+        .page-enter { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Nav Link Animation */
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: #047857; transition: all 0.3s ease-in-out; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; left: 0; }
+        .nav-link.active { color: #047857; font-weight: 700; } /* Bold Active State */
+        
+        /* Mobile Menu Animation */
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                    <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl text-slate-900 leading-none">ZHONGHUA</span>
+                        <span class="text-[10px] md:text-xs text-slate-500 font-bold tracking-widest mt-0.5">SECONDARY SCHOOL</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Links (Bold Added) -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8 h-full items-center">
+                    <a href="index.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">About Us</a>
+                    <a href="timetable.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Timetables</a>
+                    <a href="cca.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">CCA</a>
+                    <a href="achievements.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Achievements</a>
+                    <a href="znotes.html" class="nav-link active h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
+                    <a href="zportal.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZPortal</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg left-0 z-40">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">About Us</a>
+                <a href="timetable.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Timetables</a>
+                <a href="cca.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">CCA</a>
+                <a href="achievements.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Achievements</a>
+                <a href="znotes.html" class="block py-3 text-base font-bold text-emerald-700 bg-emerald-50 rounded-lg px-3 transition-colors">ZNotes</a>
+                <a href="zportal.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZPortal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="relative bg-slate-50 pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden page-enter">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs md:text-sm font-bold uppercase tracking-wide mb-6">Student Initiative</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                    Notes Sharing. <br class="hidden md:block" />
+                    <span class="gradient-text">Reimagined.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Cleaner. Neater. Faster. The ultimate platform designed by students, for students to excel in their O-Levels.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <!-- Correct Redirect Link -->
+                    <a href="https://znotes.cloudservetechcentral.com/en" target="_blank" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 hover:shadow-xl transition transform hover:-translate-y-1">
+                        Login / Start Journey
+                    </a>
+                    <a href="#features" class="px-8 py-4 bg-white text-slate-700 font-bold rounded-xl shadow border border-slate-200 hover:bg-slate-50 transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
+                <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-emerald-300 rounded-full blur-3xl mix-blend-multiply filter"></div>
+                <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-blue-300 rounded-full blur-3xl mix-blend-multiply filter"></div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Everything You Need to Succeed</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Our platform includes all the tools you need to study effectively and collaborate with peers.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">📚</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Organized Collections</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Group and organize your study materials into custom collections for easy access during revision.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🤝</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Share Knowledge</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Share your notes with peers and build a collaborative learning community within the school.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">⚡</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Lightning Fast</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Experience instant search and rapid access to all your study materials without the lag.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🔒</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Secure & Private</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Your data is encrypted and protected with enterprise-grade security protocols.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">📊</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Track Progress</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Monitor your learning journey with detailed statistics and insights on your study habits.</p>
+                    </div>
+
+                    <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition duration-300 group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🌍</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Community Driven</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Learn from and contribute to a vibrant community of Zhonghuarian scholars.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Steps -->
+        <section class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">How It Works</h2>
+                    <p class="text-slate-400">Get started in four simple steps.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div class="relative">
+                        <div class="text-6xl font-bold text-emerald-900/30 absolute top-0 left-1/2 -translate-x-1/2 -z-10">01</div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Sign Up</h3>
+                        <p class="text-sm text-slate-400">Create account with Google authentication.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="text-6xl font-bold text-emerald-900/30 absolute top-0 left-1/2 -translate-x-1/2 -z-10">02</div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Explore</h3>
+                        <p class="text-sm text-slate-400">Browse materials by subject and chapter.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="text-6xl font-bold text-emerald-900/30 absolute top-0 left-1/2 -translate-x-1/2 -z-10">03</div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Organize</h3>
+                        <p class="text-sm text-slate-400">Save important notes to your library.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="text-6xl font-bold text-emerald-900/30 absolute top-0 left-1/2 -translate-x-1/2 -z-10">04</div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">Succeed</h3>
+                        <p class="text-sm text-slate-400">Collaborate and prepare for exams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 bg-emerald-600">
+            <div class="max-w-4xl mx-auto px-4 text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to level up your study game?</h2>
+                <p class="text-emerald-100 mb-10 text-lg">Join your fellow students on Zhonghua Notes and discover a better way to prepare for your O-levels.</p>
+                <a href="https://znotes.cloudservetechcentral.com/en" target="_blank" class="inline-block px-10 py-4 bg-white text-emerald-700 font-bold rounded-xl shadow-lg hover:bg-emerald-50 transition transform hover:-translate-y-1">
+                    Launch Platform
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-8 w-8 bg-white rounded-full p-0.5 object-contain">
+                        Zhonghua Secondary
+                    </h3>
+                    <p class="mb-2 text-slate-400">13 Serangoon Avenue 3, Singapore 556123</p>
+                    <p class="text-xs md:text-sm text-slate-500 max-w-xs mt-4 leading-relaxed">Nurturing students of character and relevance since 1911. Empowering Scholars and Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://pg.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Parents Gateway</a></li>
+                        <li><a href="https://www.learning.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Student Learning Space</a></li>
+                        <li><a href="https://schoolibrary.moe.edu.sg/zhonghuasec/" target="_blank" class="hover:text-emerald-400 transition">School Library</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>Phone: +65 6282 4339</li>
+                        <li>Email: zhonghua_ss@moe.edu.sg</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs md:text-sm text-slate-600">
+                &copy; 2026 Zhonghua Secondary School. Unofficial Student Portal Concept.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

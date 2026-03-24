@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zhonghua Secondary | Timetables</title>
+    <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .page-enter { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: #047857; transition: all 0.3s ease-in-out; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; left: 0; }
+        .nav-link.active { color: #047857; font-weight: 700; }
+        
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                    <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl text-slate-900 leading-none">ZHONGHUA</span>
+                        <span class="text-[10px] md:text-xs text-slate-500 font-bold tracking-widest mt-0.5">SECONDARY SCHOOL</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex space-x-6 lg:space-x-8 h-full items-center">
+                    <a href="index.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">About Us</a>
+                    <a href="timetable.html" class="nav-link active h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Timetables</a>
+                    <a href="cca.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">CCA</a>
+                    <a href="achievements.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Achievements</a>
+                    <a href="znotes.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
+                    <a href="zportal.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZPortal</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg left-0 z-40">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">About Us</a>
+                <a href="timetable.html" class="block py-3 text-base font-bold text-emerald-700 bg-emerald-50 rounded-lg px-3 transition-colors">Timetables</a>
+                <a href="cca.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">CCA</a>
+                <a href="achievements.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Achievements</a>
+                <a href="znotes.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZNotes</a>
+                <a href="zportal.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZPortal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-12 md:py-16 page-enter">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 md:mb-12">
+                <span class="text-emerald-600 font-bold uppercase tracking-wide text-xs md:text-sm">Student Services</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-2">Class Timetables (2026)</h2>
+                <p class="mt-4 text-sm md:text-base text-slate-600 max-w-2xl mx-auto">Access your official semester schedule. Select your stream and class below to generate your direct access link.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                <div class="p-6 md:p-8 border-b border-slate-100 bg-emerald-50/50">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Level</label>
+                            <select id="levelSelect" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none bg-white text-sm">
+                                <option value="sec1">Secondary 1</option>
+                                <option value="sec2">Secondary 2</option>
+                                <option value="sec3">Secondary 3</option>
+                                <option value="sec4">Secondary 4</option>
+                                <option value="sec5">Secondary 5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Class</label>
+                            <select id="classSelect" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none bg-white text-sm">
+                                <!-- JS Populated -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 md:p-10 text-center">
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-2" id="selectedClassDisplay">Class 1C1</h3>
+                    <p class="text-sm md:text-base text-slate-500 mb-8">Official PDF Document • Semester 1, 2026</p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://www.zhonghuasec.moe.edu.sg/infolinks/class-timetable/" target="_blank" class="px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition shadow-md flex items-center justify-center gap-2 text-sm md:text-base">
+                            <span>📂</span> View Official Repository
+                        </a>
+                        <a id="directLink" href="#" target="_blank" class="px-6 py-3 bg-white border border-emerald-200 text-emerald-700 font-medium rounded-lg hover:bg-emerald-50 transition flex items-center justify-center gap-2 text-sm md:text-base">
+                            <span>📄</span> Direct PDF Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <img src="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg" alt="Logo" class="h-8 w-8 bg-white rounded-full p-0.5 object-contain">
+                        Zhonghua Secondary
+                    </h3>
+                    <p class="mb-2 text-slate-400">13 Serangoon Avenue 3, Singapore 556123</p>
+                    <p class="text-xs md:text-sm text-slate-500 max-w-xs mt-4 leading-relaxed">Nurturing students of character and relevance since 1911. Empowering Scholars and Leaders.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://pg.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Parents Gateway</a></li>
+                        <li><a href="https://www.learning.moe.edu.sg/" target="_blank" class="hover:text-emerald-400 transition">Student Learning Space</a></li>
+                        <li><a href="https://schoolibrary.moe.edu.sg/zhonghuasec/" target="_blank" class="hover:text-emerald-400 transition">School Library</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>Phone: +65 6282 4339</li>
+                        <li>Email: zhonghua_ss@moe.edu.sg</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs md:text-sm text-slate-600">
+                &copy; 2026 Zhonghua Secondary School. Unofficial Student Portal Concept.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const classes = {
+            "sec1": ["1C1", "1C2", "1C3", "1C4", "1C5", "1C6", "1C7", "1C8"], 
+            "sec2": ["2I1", "2I2", "2I3", "2I4", "2I5", "2I6", "2I7", "2I8"], 
+            "sec3": ["3R1", "3R2", "3R3", "3R4", "3R5", "3R6", "3R7", "3R8"], 
+            "sec4": ["4E1", "4E2", "4E3", "4E4", "4E5", "4E6", "4E7", "4E8"], 
+            "sec5": ["5E1"] 
+        };
+        
+        const lvlSelect = document.getElementById('levelSelect');
+        const clsSelect = document.getElementById('classSelect');
+        const display = document.getElementById('selectedClassDisplay');
+        const link = document.getElementById('directLink');
+
+        function populate() {
+            const list = classes[lvlSelect.value];
+            clsSelect.innerHTML = list.map(c => `<option value="${c}">${c}</option>`).join('');
+            update();
+        }
+        function update() {
+            const cls = clsSelect.value;
+            display.innerText = `Class ${cls}`;
+            link.href = `https://www.zhonghuasec.moe.edu.sg/files/${cls}_Term_2.pdf`;
+        }
+        lvlSelect.addEventListener('change', populate);
+        clsSelect.addEventListener('change', update);
+        populate();
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
