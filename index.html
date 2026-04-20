@@ -7,6 +7,7 @@
     <title>Zhonghua Secondary | Home</title>
     <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -33,7 +34,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 md:h-20 items-center">
@@ -51,12 +51,18 @@
                     <a href="timetable.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Timetables</a>
                     <a href="cca.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">CCA</a>
                     <a href="achievements.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">Achievements</a>
-                    <a href="znotes.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
+                    <a href="https://zhnotes.vercel.app" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZNotes</a>
                     <a href="zportal.html" class="nav-link h-full flex items-center px-1 text-sm font-bold text-slate-500 hover:text-emerald-700 transition-colors">ZPortal</a>
                 </div>
 
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
+                <div class="flex items-center gap-2">
+                    <button id="openSearchBtn" class="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 rounded-full transition-colors group">
+                        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <span class="hidden md:inline text-sm font-semibold">Search...</span>
+                        <span class="hidden lg:inline text-[10px] bg-white border border-slate-200 px-1.5 py-0.5 rounded text-slate-400 group-hover:border-emerald-200 transition-colors ml-1">Ctrl K</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-emerald-700 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
@@ -70,7 +76,7 @@
                 <a href="timetable.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Timetables</a>
                 <a href="cca.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">CCA</a>
                 <a href="achievements.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">Achievements</a>
-                <a href="znotes.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZNotes</a>
+                <a href="https://zhnotes.vercel.app" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZNotes</a>
                 <a href="zportal.html" class="block py-3 text-base font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 rounded-lg px-3 transition-colors">ZPortal</a>
             </div>
         </div>
@@ -102,7 +108,6 @@
             </div>
         </section>
 
-        <!-- Announcements -->
         <section class="py-16 bg-white page-enter" style="animation-delay: 0.1s;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -110,7 +115,6 @@
                     <p class="text-slate-600">Keep up to date with the latest happenings at Zhonghua Secondary.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Modified Card 1 -->
                     <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
                         <div class="bg-emerald-700 h-2 w-full"></div>
                         <div class="p-6">
@@ -121,7 +125,6 @@
                         </div>
                     </a>
                     
-                    <!-- Modified Card 2 -->
                     <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
                         <div class="bg-emerald-700 h-2 w-full"></div>
                         <div class="p-6">
@@ -132,7 +135,6 @@
                         </div>
                     </a>
                     
-                    <!-- Modified Card 3 -->
                     <a href="https://www.zhonghuasec.moe.edu.sg/" target="_blank" class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 group block">
                         <div class="bg-emerald-700 h-2 w-full"></div>
                         <div class="p-6">
@@ -180,9 +182,121 @@
         </div>
     </footer>
 
+    <div id="searchModal" class="fixed inset-0 z- hidden items-start justify-center pt-16 sm:pt-24 px-4 pb-4 bg-slate-900/50 backdrop-blur-sm opacity-0 transition-opacity duration-200">
+        <div class="absolute inset-0" id="searchModalBackdrop"></div>
+        
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden transform scale-95 transition-transform duration-200" id="searchModalContent">
+            <div class="p-4 border-b border-slate-100 flex items-center gap-3">
+                <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="globalSearchInput" class="w-full text-lg outline-none text-slate-800 placeholder-slate-400 bg-transparent" placeholder="Search pages, CCAs, announcements..." autocomplete="off">
+                <button id="closeSearchBtn" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded text-xs font-bold uppercase transition">Esc</button>
+            </div>
+            
+            <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-2 bg-slate-50">
+                <div class="p-4 text-center text-slate-500 text-sm">Type to start searching...</div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Mobile Menu Toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('open');
+        });
+
+        // Search Engine Implementation
+        const siteIndex = [
+            { title: "Home Dashboard", type: "Page", url: "index.html", description: "Main landing page, announcements, and quick links" },
+            { title: "About Us", type: "Page", url: "about.html", description: "School history, Principal's message, Vision, Mission, RICE values, and school song" },
+            { title: "Timetables", type: "Page", url: "timetable.html", description: "Check class schedules and download semester PDF timetables" },
+            { title: "Co-Curricular Activities (CCA)", type: "Page", url: "cca.html", description: "Browse all Sports, Performing Arts, Uniformed Groups, and Clubs" },
+            { title: "Achievements", type: "Page", url: "achievements.html", description: "Academic excellence, organisational awards, and green school awards" },
+            { title: "ZNotes", type: "Platform", url: "https://zhnotes.vercel.app/en", description: "Student-led collaborative notes sharing platform" },
+            { title: "ZPortal", type: "Platform", url: "zportal.html", description: "Centralized student dashboard, classroom sync, and updates" },
+            { title: "SIL Overview and Information", type: "Information", url: "index.html", description: "Student Initiated Learning requirements and safety guidelines" },
+            { title: "Student Portfolio", type: "Feature", url: "zportal.html", description: "Structured profile form for student credentials and personal statements" },
+            { title: "Basketball (Girls)", type: "CCA - Sports", url: "cca.html", description: "Develops players’ skills, character, and resilience. Training on Mon, Wed." },
+            { title: "Art Club", type: "CCA - Clubs", url: "cca.html", description: "Explore art mediums and develop skills through workshops." },
+            { title: "Chinese Orchestra", type: "CCA - Performing Arts", url: "cca.html", description: "Learn traditional Chinese music and develop teamwork." },
+            { title: "Boys' Brigade", type: "CCA - Uniformed Groups", url: "cca.html", description: "Leadership, character, and life skills through adventure." }
+        ];
+
+        const fuseOptions = {
+            keys: ['title', 'description', 'type'],
+            threshold: 0.3,
+            includeMatches: true,
+            minMatchCharLength: 2
+        };
+        const fuse = new Fuse(siteIndex, fuseOptions);
+
+        const searchModal = document.getElementById('searchModal');
+        const searchModalContent = document.getElementById('searchModalContent');
+        const searchModalBackdrop = document.getElementById('searchModalBackdrop');
+        const searchInput = document.getElementById('globalSearchInput');
+        const searchResults = document.getElementById('searchResults');
+        const openSearchBtn = document.getElementById('openSearchBtn');
+        const closeSearchBtn = document.getElementById('closeSearchBtn');
+
+        function openSearch() {
+            searchModal.classList.remove('hidden');
+            setTimeout(() => {
+                searchModal.classList.remove('opacity-0');
+                searchModalContent.classList.remove('scale-95');
+                searchInput.focus();
+            }, 10);
+        }
+
+        function closeSearch() {
+            searchModal.classList.add('opacity-0');
+            searchModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                searchModal.classList.add('hidden');
+                searchInput.value = '';
+                searchResults.innerHTML = '<div class="p-4 text-center text-slate-500 text-sm">Type to start searching...</div>';
+            }, 200);
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            
+            if (query.trim().length === 0) {
+                searchResults.innerHTML = '<div class="p-4 text-center text-slate-500 text-sm">Type to start searching...</div>';
+                return;
+            }
+
+            const results = fuse.search(query);
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="p-4 text-center text-slate-500 text-sm">No results found.</div>';
+                return;
+            }
+
+            const resultsHTML = results.slice(0, 8).map(result => `
+                <a href="${result.item.url}" class="block p-4 mb-2 bg-white rounded-xl border border-slate-100 hover:border-emerald-300 hover:shadow-md transition-all group">
+                    <div class="flex justify-between items-start mb-1">
+                        <h4 class="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">${result.item.title}</h4>
+                        <span class="text-[10px] font-bold uppercase bg-slate-100 text-slate-600 px-2 py-0.5 rounded">${result.item.type}</span>
+                    </div>
+                    <p class="text-sm text-slate-500 line-clamp-1">${result.item.description}</p>
+                </a>
+            `).join('');
+
+            searchResults.innerHTML = resultsHTML;
+        });
+
+        openSearchBtn?.addEventListener('click', openSearch);
+        closeSearchBtn?.addEventListener('click', closeSearch);
+        searchModalBackdrop?.addEventListener('click', closeSearch);
+
+        // Keyboard Shortcuts (Ctrl+K / Cmd+K to open, Esc to close)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+            if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
+                closeSearch();
+            }
         });
     </script>
 </body>
