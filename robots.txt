@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /free-claude-code/
+Disallow: /.well-known/
+
+Sitemap: https://zhonghuasec.school/sitemap.xml

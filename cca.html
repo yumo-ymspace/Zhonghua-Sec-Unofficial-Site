@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Co-Curricular Activities at Zhonghua Secondary School. Browse sports, performing arts, uniformed groups, and clubs with schedules and achievements.">
+    <title>Zhonghua Secondary | CCA</title>
+    <link rel="canonical" href="https://zhonghuasec.school/cca.html">
+    <meta property="og:title" content="Co-Curricular Activities | Zhonghua Secondary School">
+    <meta property="og:description" content="Find your passion — browse all CCAs at Zhonghua Secondary with training schedules and achievements.">
+    <meta property="og:url" content="https://zhonghuasec.school/cca.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zhonghua Secondary School">
+    <link rel="icon" href="https://www.zhonghuasec.moe.edu.sg/images/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <main id="main-content" class="flex-grow py-12 md:py-16 page-enter">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 md:mb-12">
+                <span class="text-emerald-600 font-bold uppercase tracking-wide text-xs md:text-sm">Co-Curricular Activities</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-2">Find Your Passion</h2>
+                <p class="mt-4 text-sm md:text-base text-slate-600">Accurate training schedules and objectives for Academic Year 2026.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 md:mb-10 sticky top-16 md:top-24 bg-white/95 backdrop-blur z-40 p-4 border border-slate-100 rounded-xl shadow-sm">
+                <div class="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-emerald-600 text-white transition-all shadow-sm whitespace-nowrap" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all whitespace-nowrap" data-filter="Sports">Sports</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all whitespace-nowrap" data-filter="Performing Arts">Arts</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all whitespace-nowrap" data-filter="Uniformed Groups">Uniformed Groups</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all whitespace-nowrap" data-filter="Clubs">Clubs</button>
+                </div>
+                <input type="text" id="ccaSearch" placeholder="Search CCA..." class="px-4 py-2 border border-slate-300 rounded-full text-sm focus:ring-2 focus:ring-emerald-500 outline-none w-full md:w-64">
+            </div>
+
+            <!-- CCA Grid -->
+            <div id="ccaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20"></div>
+        </div>
+    </main>
+
+    <!-- Detailed Modal -->
+    <div id="ccaModal" class="modal fixed inset-0 z-[60] flex items-center justify-center px-4 py-6 sm:px-0" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="modalController.close()"></div>
+        <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col">
+            <div class="bg-emerald-700 p-6 sm:p-8 text-white relative overflow-hidden shrink-0">
+                <div class="absolute top-0 right-0 p-4 z-50">
+                    <button type="button" onclick="modalController.close()" class="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-800 rounded-full p-2 transition cursor-pointer" aria-label="Close modal">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative z-10 pr-8">
+                    <span id="modalCategory" class="inline-block px-3 py-1 rounded-full bg-emerald-600 border border-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">Sports</span>
+                    <h2 id="modalTitle" class="text-2xl md:text-3xl font-bold leading-tight">Basketball (Girls)</h2>
+                </div>
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" aria-hidden="true"></div>
+            </div>
+            <div class="p-6 sm:p-8 space-y-6">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <span class="text-2xl">⏱</span>
+                    <div>
+                        <h4 class="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wide">Training Schedule</h4>
+                        <p id="modalTime" class="text-slate-800 font-semibold mt-1 text-sm md:text-base">Mon, Wed: 3.00pm - 6.00pm</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2"><span>📝</span> About</h4>
+                    <p id="modalDesc" class="text-slate-600 leading-relaxed text-sm md:text-base">Description</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2"><span>🏆</span> Key Achievements</h4>
+                    <ul id="modalAchievements" class="space-y-2"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <script>
+        const ccas = [
+             { id: "artclub", name: "Art Club", category: "Clubs", icon: "🎨", time: "Mon: 3.15pm - 5.45pm", objective: "The Art Club offers students opportunities to explore various art mediums, develop their skills through workshops with professionals, and contribute to school exhibitions and creative projects.", description: "The Art Club is designed for students who are passionate about art and want to explore different artistic mediums while improving their skills. Members learn from professional artists through workshops and gain experience in art forms such as watercolour, oil painting, crochet, fused glass, photography, and digital image editing. Their artworks are often featured in school publicity materials and gifts, and students also take on roles as docents during school art exhibitions, guiding visitors and facilitating art appreciation and learning experiences.", achievements: ["Singapore Youth Festival (SYF) 2022 Art Exhibition: Artist and Sustainability – Certificate of Recognition.","Live On Design Competition (School Category) 2020, 2021 and 2022 – Merit Award"] },
+             
+             
+             
+             
+             
+             
+             { id: "chinesesoc", name: "Chinese Society", category: "Clubs", icon: "🏮", time: "Mon, Wed: 3.15pm - 5.15pm", objective: "The Chinese Society is a dynamic CCA that nurtures students’ interest in Chinese culture and language through Drama, Calligraphy, and Chess while sharing their passion with the school and community.", description: "The Chinese Society is a vibrant co-curricular activity made up of three sub-groups: Drama, Calligraphy, and Chess. It aims to cultivate students’ appreciation of Chinese culture and strengthen their Chinese language skills. Members and teachers work together to develop their talents and strive for excellence in their respective art forms. Through their activities and performances, the Society also shares its enthusiasm for Chinese arts and culture with the wider school and community.", achievements: ["Singapore Youth Festival Arts Presentation 2025 – Certificate of Accomplishment","Singapore Youth Festival Arts Presentation 2023 – Certificate of Distinction"] },
+             
+             
+             
+             
+             
+             
+             { id: "eldds", name: "ELDDS", category: "Clubs", icon: "🎭", time: "Mon: 3.00pm - 5.30pm", objective: "Zhonghua’s ELDDS, comprising the Drama Club and Debate Club, develops students’ confidence, communication, and critical thinking skills through drama performance and persuasive argumentation.", description: "Zhonghua’s ELDDS comprises the Drama Club and Debate Club, both of which aim to build students’ confidence and communication skills. Drama Club members learn performance and production skills while expressing themselves creatively on stage. Debate Club members develop critical thinking, persuasive speaking, and research skills, learning to express their views confidently and engage in constructive discussions.", achievements: ["Drama: Singapore Youth Festival Arts Presentation 2025 - Certificate of Distinction","Drama: Singapore Youth Festival Arts Presentation 2023 - Certificate of Accomplishment (Team A) and Certificate of Distinction (Team B)"] },
+             
+             
+             
+             
+             
+             { id: "library", name: "Library", category: "Clubs", icon: "📚", time: "Wed: 3.00pm - 5.00pm", objective: "The Zhonghua Secondary School Library Club develops servant leaders who foster a strong reading culture while building leadership, organisational, and communication skills through service to the school community.", description: "The Zhonghua Secondary School Library Club aims to nurture servant leaders by developing students’ leadership, organisational, and communication skills. Student librarians serve the school community by helping to curate the library collection and maintain it as a valuable learning space. Through their involvement, they promote a strong reading culture and grow into responsible and capable leaders.", achievements: ["National School Library Quality Award"] },
+             
+             
+             
+             
+             
+             { id: "infocomm", name: "Infocomm Club", category: "Clubs", icon: "💻", time: "Mon, Wed: 3.30pm - 5.30pm", objective: "The Infocomm Club develops students' technology and media skills through programmes in areas like videography, programming, game design, and AI while nurturing creativity, teamwork, and computational thinking.", description: "The Infocomm Club (ICC) equips students with essential technology and media skills to thrive in a digital world. Through programmes in videography, game design, programming, makers, and artificial intelligence, members deepen their knowledge and develop computational thinking and 21st-century competencies. The club also encourages teamwork, creativity, and problem-solving as students explore their interests and showcase their skills.", achievements: ["2025 - BEBRAS Competition (5 Golds, 3 Silvers, 6 Bronzes)","2024 - Design Thinking with Robotics and Computational Thinking (5 Golds, 1 Silver, 12 Bronzes)","2024 - National Robotics Competition - Regular Category (Best Learning Journey) 3rd place"] },
+             
+             
+             
+             { id: "chineseorch", name: "Chinese Orchestra", category: "Performing Arts", icon: "🎻", time: "Wed, Thu: 3.00pm - 6.00pm", objective: "The Zhonghua Chinese Orchestra provides a nurturing platform for students to learn and perform traditional Chinese music while developing teamwork, resilience, and leadership skills.", description: "The Zhonghua Chinese Orchestra offers students, including beginners, a supportive environment to learn and appreciate traditional Chinese music and culture. Members develop personal responsibility, teamwork, and resilience through various programmes and performance opportunities. They also build leadership skills and serve as ambassadors of the CCA while performing at school and community events to share the joy of Chinese music.", achievements: ["Singapore Youth Festival Arts Presentation: Consecutive Certificate of Distinction from 2013 to 2025"] },
+             
+             
+             
+             
+             { id: "choir", name: "Choir", category: "Performing Arts", icon: "🎤", time: "Mon, Thu: 3.00pm - 5.30pm", objective: "The Zhonghua Secondary School Choir nurtures students’ passion for singing while developing their confidence and musicianship through a diverse musical repertoire.", description: "The Zhonghua Secondary School Choir is made up of enthusiastic singers who share a passion for music. Through performing a wide range of songs from musicals to various languages and genres, choristers build their musicianship and confidence. The Choir provides a supportive platform for students to express themselves and grow as performers.", achievements: ["Singapore Youth Festival Arts Presentation 2025 - Certificate of Distinction","Singapore Youth Festival Arts Presentation 2023 - Certificate of Accomplishment"] },
+             
+             
+             
+             
+             { id: "dance", name: "Dance", category: "Performing Arts", icon: "💃", time: "Mon, Wed: 3.00pm - 5.30pm", objective: "Dance members develop skills in various dance genres while building confidence, discipline, and teamwork through performances and training.", description: "The Dance CCA allows members to gain expertise in Chinese Dance while exploring other genres such as Hip Hop, K-Pop, and Contemporary. Students improve their technique, poise, and choreography skills through regular practice and performances. By performing at school and community events, members also develop resilience, discipline, communication, and teamwork.", achievements: ["Singapore Youth Festival Arts Presentation 2025: Certificate of Accomplishment","Singapore Youth Festival Arts Presentation 2023: Certificate of Distinction"] },
+             
+             
+             
+             { id: "guzheng", name: "Guzheng", category: "Performing Arts", icon: "🎼", time: "Mon: 3.00 - 6.00pm, Wed: 3.00pm - 5.00pm", objective: "The Guzheng Ensemble nurtures students’ musical talents while promoting traditional Chinese music and developing teamwork, discipline, and leadership skills.", description: "Formed in 1994, Zhonghua Secondary School’s Guzheng Ensemble provides a platform for students to learn and perform traditional Chinese music at school and community events. Members develop not only their technical skills and musicianship but also important qualities such as discipline, teamwork, perseverance, and leadership. Through practices, performances, and bonding activities, students build strong friendships and grow together.", achievements: ["Singapore Youth Festival Arts Presentation 2025 – Certificate of Accomplishment","Singapore Youth Festival Arts Presentation 2023 – Certificate of Distinction"] },
+             
+             
+             
+             { id: "band", name: "Band", category: "Performing Arts", icon: "🎺", time: "Mon, Thu: 3.00pm - 6.00pm", objective: "ZWinds nurtures students’ musical skills and personal growth, fostering teamwork, leadership, and a strong sense of community through ensemble performance.", description: "Established in 1987, ZWinds develops students’ musical abilities while cultivating qualities like perseverance, active listening, and team spirit. Working together in sections and as a full band, members build confidence, communication, and leadership skills. Beyond music, ZWinds fosters camaraderie and care among members, creating a supportive environment where students grow together while sharing their passion for music.", achievements: ["2025 Singapore Youth Festival Arts Presentation -Certificate of Distinction (Concert Band)","2024 - Asia Pacific Band Festival 2024 (Gold Award)"] },
+             
+             
+             
+             
+             { id: "badminton", name: "Badminton (Girls)", category: "Sports", icon: "🏸", time: "Mon, Thu: 3.00pm - 6.00pm", objective: "Zhonghua Secondary School’s Badminton team nurtures members’ skills, confidence, and resilience, welcoming players of all levels to develop their competitive spirit through training and competitions.", description: "Zhonghua Secondary School’s Badminton team provides opportunities for all members, including beginners, to develop agility, confidence, and resilience. Comprising about 45 girls selected through Sec 1 trials or DSA interviews, the team trains under experienced coaches on Mondays and Thursdays, with occasional holiday game sessions and friendly matches. Members compete in the National School Games, honing their skills and showcasing their competitive spirit against strong opponents.", achievements: ["2023 & 2024 South Zone ‘B’ & 'C' Division Badminton Competition (participation)","2024 National School Games (NSG) Opening Ceremony representing Singapore Sports Council as Oath Taker (captain of Badminton team)"] },
+             
+             
+             
+             
+             
+             
+             { id: "basketball", name: "Basketball (Girls)", category: "Sports", icon: "🏀", time: "Mon, Wed: 3.00pm - 5.30pm", objective: "The Zhonghua Girls’ Basketball team develops players’ skills, character, and resilience while fostering teamwork, sportsmanship, and a commitment to excellence.", description: "The Zhonghua Girls’ Basketball team, with a legacy of achievements since the 1960s, nurtures players in line with the school’s values of resilience, integrity, care, and excellence. Members learn to support one another, stay healthy, and develop their individual strengths through tailored training. By practicing and competing together, they cultivate persistence, teamwork, sportsmanship, and moral integrity, preparing them to excel both on and off the court.", achievements: ["BM U16 Boys’ and Girls’ Basketball Invitational Championship 2022 – 3rd Position","South Zone C Division Basketball Championship 2022 – 4th Position"] },
+             
+             
+             
+             
+             
+             
+             { id: "tabletennis", name: "Table Tennis (Boys)", category: "Sports", icon: "🏓", time: "Wed, Thu: 3.00pm - 5.30pm", objective: "The Zhonghua Secondary School Boys’ Table Tennis team develops resilient and disciplined athletes who embody responsibility, integrity, care, and excellence.", description: "The Zhonghua Boys’ Table Tennis team nurtures players through rigorous training that challenges them physically and mentally while fostering strong character and social skills. Training includes fitness, skill drills, and set-play practices, helping members improve both as athletes and individuals. Players are encouraged to take responsibility, act with integrity, care for their teammates, and strive for excellence in all they do.", achievements: ["2024 NSG National 'C' Division League 2 (South Zone 'B' Division - Participation)","2024 National School Games ‘B’ Division Competition (4th position in Preliminary Round)","2024 National School Games ‘C’ Division Competition (4th position in South Zone)"] },
+             
+             
+             
+             
+             
+             
+             { id: "volleyball", name: "Volleyball (Boys)", category: "Sports", icon: "🏐", time: "Mon, Wed: 3.00pm - 6.00pm", objective: "Zhonghua Secondary School’s Volleyball CCA develops disciplined, committed players who strive for excellence and sportsmanship through rigorous training, competitions, and experiential learning.", description: "Zhonghua Secondary School’s Volleyball CCA fosters discipline, commitment, and high standards of play and sportsmanship. Boys improve their skills and personal performance through rigorous training and aim for excellence in the National Schools’ Volleyball competitions. The CCA also provides experiential learning through friendly games, camps, competitions, and Values-in-Action activities, with training conducted twice a week under experienced coaches.", achievements: ["2024 NSG 'C' Division League 3 & South Zone 'B' Division (Participation)","2023 NSG South Zone ‘B’ Division & 'C' Division (Participation)"] },
+             
+             
+             
+             
+             
+             { id: "bb", name: "Boys' Brigade", category: "Uniformed Groups", icon: "⚓", time: "Wed: 3.00pm - 6.00pm, Sat: 8.00am - 12.00pm", objective: "The 48th Company Boys’ Brigade develops leadership, character, and life skills through adventure, service, and mentoring, fostering camaraderie and a global mindset.", description: "Zhonghua Secondary School’s Boys’ Brigade, the oldest uniformed group, offers students a variety of challenging and meaningful programmes focused on leadership, teamwork, life skills, and community service rooted in Christian values. Members engage in activities that push them out of their comfort zones, develop character, and cultivate leadership qualities. Through mentoring, camaraderie, and a global mindset, boys learn the importance of giving back and contributing positively to society.", achievements: ["2022 - 2025 JM Fraser Award for Excellence (High Distinction)","BB Blaze 2025 - Individual 7th, Gold Honour Roll"] },
+             
+             
+             
+             
+             
+             { id: "gb", name: "Girls' Brigade", category: "Uniformed Groups", icon: "🕯️", time: "Thu: 3.00pm - 6.00pm", objective: "The Girls’ Brigade at Zhonghua develops girls’ leadership, confidence, and life skills while fostering empathy, teamwork, and resilience through service, activities, and mentoring.", description: "The Girls’ Brigade at Zhonghua Secondary School empowers girls to reach their fullest potential by cultivating leadership, self-confidence, and good moral values. Through weekly Parade activities, committee work, and service-learning projects, members develop practical life skills, teamwork, resilience, and empathy. Close bonds between girls, officers, and teachers create a supportive environment where members inspire one another, contribute meaningfully, and grow holistically.", achievements: ["Company Award– Gold (2022-2025)","National Drill Competition 2025 (Gold)"] },
+             
+             
+             
+             
+             
+             { id: "ncc", name: "National Cadet Corps", category: "Uniformed Groups", icon: "🪖", time: "Wed: 3.00pm - 6.00pm", objective: "Zhonghua Secondary School NCC develops cadets’ leadership, resilience, fitness, and teamwork through diverse training, activities, and national-level events.", description: "Zhonghua Secondary School NCC, recognised with the Distinction award for 28 consecutive years, nurtures cadets into leaders with resilient minds, fit bodies, and committed hearts. Through engaging activities like airsoft rifle firing, dragonboating, orienteering, high-elements challenges, and outfield cooking, cadets build confidence, social skills, and teamwork. Participation in national fitness events further strengthens camaraderie while pushing cadets to achieve their personal best.", achievements: ["Unit Recognition Award (2024) - Distinction","Unit Recognition Award (2023) - Distinction"] },
+             
+             
+             
+             
+             
+             { id: "npcc", name: "National Police Cadet Corps", category: "Uniformed Groups", icon: "👮", time: "Thu: 3.00pm - 6.00pm", objective: "Zhonghua Secondary NPCC develops cadets’ character, leadership, and resilience, preparing them to be caring, responsible, and capable citizens.", description: "Zhonghua Secondary NPCC nurtures cadets to graduate as caring and responsible citizens by building character, leadership, and resilience. Guided by the motto “Together, Excellence,” cadets engage in programmes and activities that develop skills and dispositions in law enforcement, leadership, national education, and personal growth. Through these experiences, they discover their potential, learn valuable life skills, and grow into confident and socially responsible individuals.", achievements: ["Unit Overall Proficiency Award 2025 (Distinction)","Recipients of SPF-NPCC award (2022 - 2025)","Area Games Day Competition 2024 – Dodgeball Competition: 2nd Runner , Ultimate Frisbee Competition: 2nd runner up and Sphere Showdown Competition: 1st Runner up"] },
+             
+             
+             
+             
+             
+             { id: "scouts", name: "Scouts", category: "Uniformed Groups", icon: "⚜️", time: "Thu: 3.00pm - 6.00pm", objective: "The Zhonghua Scout Group develops skills, leadership, and camaraderie through adventure, pioneering, and international experiences while achieving excellence in national competitions.", description: "The Zhonghua Scout Group, established in 2000, offers students a journey of adventure, discovery, and skill-building. Scouts learn pioneering, orienteering, backwoodsman cooking, and participate in sports like kayaking and archery, while fostering leadership, teamwork, and friendships. The group also engages in international exchanges and camps, and has consistently excelled in national competitions, earning multiple awards including the prestigious Frank Cooper Sands Awards.", achievements: ["Frank Cooper Sands Award (2024) - Gold","Frank Cooper Sands Award (2023) - Gold"] },
+             
+             
+             
+             
+             { id: "ncdcc", name: "National Civil Defence Cadet Corps", category: "Uniformed Groups", icon: "🚒", time: "Thu: 3.00pm - 6.00pm", objective: "Zhonghua Secondary School’s NCDCC develops cadets into skilled, responsible, and compassionate leaders through training in life-saving skills, leadership, and community service.", description: "Zhonghua Secondary School’s NCDCC cultivates cadets through a journey of learning, leadership, and service. Cadets acquire life-saving skills in basic firefighting, first aid, and CPR+AED to become capable Community First Responders. They also develop communication, relationship management, and social awareness as they take on leadership roles in specialized areas like Fire Safety, Medical Response, and Urban or Marine Rescue. Finally, cadets serve the school and wider community through public duties, education initiatives, and mentorship, fostering a culture of care, service, and excellence.", achievements: ["UOPA 2024 (Distinction)","NCDCC 20th Anniversary Logo Design Competition 2024 (Winner)","UACDC 2024 (2nd Runner-up)"] }
+        ];
+
+        const grid = document.getElementById('ccaGrid');
+        const search = document.getElementById('ccaSearch');
+        const btns = document.querySelectorAll('.filter-btn');
+        let activeFilter = 'all';
+
+        function render() {
+            const term = search.value.toLowerCase();
+            const filtered = ccas.filter(c => {
+                return (activeFilter === 'all' || c.category === activeFilter) && c.name.toLowerCase().includes(term);
+            });
+            
+            if(filtered.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-10 text-slate-400">No CCAs found.</div>';
+                return;
+            }
+
+            grid.innerHTML = '';
+            const frag = document.createDocumentFragment();
+            filtered.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-5 md:p-6 rounded-xl border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col h-full cursor-pointer group';
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', 'View details for ' + c.name);
+                card.onclick = () => modalController.open(c.id);
+                card.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); modalController.open(c.id); } };
+
+                const top = document.createElement('div');
+                top.className = 'flex justify-between items-start mb-4';
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'text-3xl p-2 bg-slate-50 rounded-lg group-hover:bg-emerald-50 transition';
+                iconSpan.setAttribute('aria-hidden', 'true');
+                iconSpan.textContent = c.icon;
+                const catSpan = document.createElement('span');
+                catSpan.className = 'text-[10px] md:text-xs font-bold uppercase bg-emerald-100 text-emerald-800 px-2 py-1 rounded border border-emerald-200';
+                catSpan.textContent = c.category;
+                top.appendChild(iconSpan);
+                top.appendChild(catSpan);
+                card.appendChild(top);
+
+                const h3 = document.createElement('h3');
+                h3.className = 'text-base md:text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition';
+                h3.textContent = c.name;
+                card.appendChild(h3);
+
+                const objP = document.createElement('p');
+                objP.className = 'text-xs md:text-sm text-slate-500 italic mb-4 flex-grow line-clamp-2';
+                objP.textContent = '"' + c.objective + '"';
+                card.appendChild(objP);
+
+                const footer = document.createElement('div');
+                footer.className = 'pt-4 border-t border-slate-100 text-xs md:text-sm font-bold text-emerald-600 flex justify-between items-center';
+                const readMore = document.createElement('span');
+                readMore.className = 'group-hover:underline';
+                readMore.textContent = 'Read More →';
+                footer.appendChild(readMore);
+                card.appendChild(footer);
+
+                frag.appendChild(card);
+            });
+            grid.appendChild(frag);
+        }
+
+        window.modalController = {
+            _savedScrollY: 0,
+            open(id) {
+                const c = ccas.find(x => x.id === id);
+                if(!c) return;
+                this._savedScrollY = window.scrollY;
+                document.getElementById('modalTitle').innerText = c.name;
+                document.getElementById('modalCategory').innerText = c.category;
+                document.getElementById('modalTime').innerText = c.time;
+                document.getElementById('modalDesc').innerText = c.description;
+                achList.innerHTML = '';
+                c.achievements.forEach(a => {
+                    const li = document.createElement('li');
+                    li.className = 'flex gap-2 text-sm text-slate-700';
+                    const check = document.createElement('span');
+                    check.className = 'text-emerald-500';
+                    check.textContent = '✓';
+                    const text = document.createTextNode(' ' + a);
+                    li.appendChild(check);
+                    li.appendChild(text);
+                    achList.appendChild(li);
+                });
+                document.getElementById('ccaModal').classList.add('open');
+                document.body.style.overflow = 'hidden';
+                // Focus the close button for keyboard users
+                document.querySelector('#ccaModal button[aria-label="Close modal"]').focus();
+            },
+            close() {
+                document.getElementById('ccaModal').classList.remove('open');
+                document.body.style.overflow = '';
+                window.scrollTo(0, this._savedScrollY);
+            }
+        };
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('ccaModal').classList.contains('open')) {
+                modalController.close();
+            }
+        });
+
+        btns.forEach(btn => btn.addEventListener('click', (e) => {
+            btns.forEach(b => { 
+                b.classList.remove('bg-emerald-600', 'text-white'); 
+                b.classList.add('bg-slate-100', 'text-slate-600'); 
+            });
+            e.target.classList.remove('bg-slate-100', 'text-slate-600');
+            e.target.classList.add('bg-emerald-600', 'text-white');
+            activeFilter = e.target.getAttribute('data-filter');
+            render();
+        }));
+        
+        search.addEventListener('input', render);
+        render();
+    </script>
+    <noscript>
+        <div style="padding:2rem 1rem;text-align:center;background:#fef3c7;color:#92400e;font-size:0.875rem">
+            JavaScript is required for this site to display navigation. Please visit
+            <a href="https://www.zhonghuasec.moe.edu.sg/" style="color:#047857;font-weight:700">the official school website</a>.
+        </div>
+    </noscript>
+</body>
+</html>

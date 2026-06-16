@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/vercelznotes.html", "destination": "/znotes.html", "permanent": true },
+    { "source": "/zportalrelease.html", "destination": "/zportal.html", "permanent": true }
+  ]
+}
